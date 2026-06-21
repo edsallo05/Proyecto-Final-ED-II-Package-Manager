@@ -100,20 +100,5 @@ public class PackageTree {
             preordenRecursivo(hijo);
         }
     }
-
-    // Lista todos los paquetes reales (no carpetas) del árbol
-    public List<PackageNode> listarPaquetes() {
-        List<PackageNode> lista = new ArrayList<>();
-        listarRecursivo(raiz, lista);
-        return lista;
-    }
-
-    private void listarRecursivo(PackageNode nodo, List<PackageNode> lista) {
-        if (!nodo.isEsCarpeta()) {
-            lista.add(nodo);
-        }
-        for (PackageNode hijo : nodo.getHijos()) {
-            listarRecursivo(hijo, lista);
-        }
-    }
 }
+

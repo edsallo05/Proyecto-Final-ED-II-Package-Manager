@@ -50,49 +50,6 @@ public class DependencyGraph {
         }
     }
 
-    // Recorrido BFS desde un nodo inicial, muestra los nodos nivel por nivel
-    public void BFS(PackageNode inicio) {
-        Set<PackageNode> visitados = new HashSet<>();
-        Queue<PackageNode> cola = new LinkedList<>();
-
-        cola.add(inicio);
-        visitados.add(inicio);
-
-        System.out.println("BFS desde " + inicio.getNombre() + ":");
-        while (!cola.isEmpty()) {
-            PackageNode nodo = cola.poll();
-            System.out.println("  " + nodo.getNombre());
-
-            for (PackageNode vecino : lista_adyacencia.getOrDefault(nodo, new LinkedList<>())) {
-                if (!visitados.contains(vecino)) {
-                    visitados.add(vecino);
-                    cola.add(vecino);
-                }
-            }
-        }
-    }
-
-    // Recorrido DFS iterativo desde un nodo inicial
-    public void DFS(PackageNode inicio) {
-        Set<PackageNode> visitados = new HashSet<>();
-        Stack<PackageNode> pila = new Stack<>();
-
-        pila.push(inicio);
-
-        System.out.println("DFS desde " + inicio.getNombre() + ":");
-        while (!pila.isEmpty()) {
-            PackageNode nodo = pila.pop();
-            if (!visitados.contains(nodo)) {
-                visitados.add(nodo);
-                System.out.println("  " + nodo.getNombre());
-
-                for (PackageNode vecino : lista_adyacencia.getOrDefault(nodo, new LinkedList<>())) {
-                    pila.push(vecino);
-                }
-            }
-        }
-    }
-
     // DFS recursivo auxiliar usado por topologicalSort
     private void dfsRecursivo(PackageNode nodo, Set<PackageNode> visitados, Stack<PackageNode> pila) {
         visitados.add(nodo);

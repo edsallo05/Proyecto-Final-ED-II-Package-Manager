@@ -21,6 +21,7 @@ public class Main {
             System.out.println(" 8. Instalar paquete");
             System.out.println(" 9. Detectar ciclos");
             System.out.println("10. Eliminar paquete/carpeta");
+            System.out.println("11. Recorrer árbol");
             System.out.println(" 0. Salir");
             System.out.println("=============================");
             System.out.print("Seleccione una opción: ");
@@ -96,7 +97,9 @@ public class Main {
                     String eliminar = scanner.nextLine();
                     pm.eliminarPaquete(eliminar);
                     break;
-
+                case 11:
+                    pm.mostrarPreorden();
+                    break;
                 case 0:
                     System.out.println("Saliendo del gestor...");
                     break;
