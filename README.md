@@ -69,6 +69,7 @@ java Main
  8. Instalar paquete
  9. Detectar ciclos
 10. Eliminar paquete/carpeta
+11. Recorrer arbol
  0. Salir
 ```
 
